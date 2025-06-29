@@ -199,6 +199,7 @@ public class CodeAnalyzer extends NodeVisitor {
     private TypedBindingPatternNode typedBindingPatternNode;
     private static final String BALLERINAX = "ballerinax";
     private static final String AI_AGENT = "ai";
+    private static final String DEFAULT_MCP_SERVER_NAME = "MCP Server";
 
     public CodeAnalyzer(Project project, SemanticModel semanticModel, String connectionScope,
                         Map<String, LineRange> dataMappings, Map<String, LineRange> naturalFunctions,
@@ -398,12 +399,10 @@ public class CodeAnalyzer extends NodeVisitor {
         }
     }
 
-
     private static String extractMcpToolKitName(String sourceCode) {
         Pattern pattern = Pattern.compile("name:\\s*\"([^\"]*)\"");
-
         Matcher matcher = pattern.matcher(sourceCode);
-        String nameValue = "MCP Server";
+        String nameValue = DEFAULT_MCP_SERVER_NAME;
         if (matcher.find()) {
             nameValue = matcher.group(1);
         }
