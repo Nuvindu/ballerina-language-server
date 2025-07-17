@@ -417,7 +417,7 @@ public class CodeAnalyzer extends NodeVisitor {
         }
         if (specificField.valueExpr().isPresent()) {
             String value = specificField.valueExpr().get().toString();
-            return value.substring(1, value.length() -1);
+            return value.substring(1, value.length() - 1);
         }
         return null;
     }
