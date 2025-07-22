@@ -484,9 +484,13 @@ public class CodeAnalyzer extends NodeVisitor {
         if (toolsArg.kind() == SyntaxKind.LIST_CONSTRUCTOR) {
             List<ToolData> toolsData = new ArrayList<>();
             ListConstructorExpressionNode listCtrExprNode = (ListConstructorExpressionNode) toolsArg;
+            int index = 2;
             for (Node node : listCtrExprNode.expressions()) {
                 if (node.kind() == SyntaxKind.CHECK_EXPRESSION) {
-                    String toolName = generateToolKitName(toolsData, node);
+                    String toolName = generateToolKitName(node, index);
+                    if (toolName.startsWith(MCP_SERVER)) {
+                        index++;
+                    }
                     toolsData.add(new ToolData(toolName, ICON_PATH, getToolDescription(""), MCP_SERVER));
                     continue;
                 }
