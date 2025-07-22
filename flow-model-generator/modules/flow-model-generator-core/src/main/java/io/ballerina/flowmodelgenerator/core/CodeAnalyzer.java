@@ -399,7 +399,7 @@ public class CodeAnalyzer extends NodeVisitor {
         }
     }
 
-    private String generateToolKitName(List<ToolData> toolsData, Node node) {
+    private String generateMcpToolKitName(List<ToolData> toolsData, Node node) {
         String name = getMcpToolName(node);
         int index = 2;
 
