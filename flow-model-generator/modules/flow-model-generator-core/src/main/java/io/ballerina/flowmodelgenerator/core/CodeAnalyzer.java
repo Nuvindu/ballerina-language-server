@@ -494,25 +494,15 @@ public class CodeAnalyzer extends NodeVisitor {
                     continue;
                 }
                 SimpleNameReferenceNode simpleNameReferenceNode = (SimpleNameReferenceNode) node;
-                Optional<Symbol> nodeSymbol = semanticModel.symbol(node);
-                if (nodeSymbol.isEmpty()) {
-                    String toolName = simpleNameReferenceNode.name().text();
-                    toolsData.add(new ToolData(toolName, getIcon(toolName), getToolDescription(toolName), null));
-                    continue;
-                }
-
-                Symbol symbol = nodeSymbol.get();
-                if (symbol.kind() != SymbolKind.VARIABLE) {
-                    String toolName = simpleNameReferenceNode.name().text();
-                    toolsData.add(new ToolData(toolName, getIcon(toolName), getToolDescription(toolName), null));
-                    continue;
-                }
-
-                TypeSymbol typeSymbol = ((VariableSymbol) symbol).typeDescriptor();
-                if (typeSymbol.getModule().isPresent()
-                        && typeSymbol.nameEquals(MCP_TOOL_KIT)
-                        && typeSymbol.getModule().get().id().moduleName().equals(AI_AGENT)) {
-                    String toolName = simpleNameReferenceNode.name().text().replace("\\", "");
+                String toolName = simpleNameReferenceNode.name().text();
+                boolean isMcpToolKit = nodeSymbol
+                    .filter(symbol -> symbol.kind() == SymbolKind.VARIABLE)
+                    .map(symbol -> ((VariableSymbol) symbol).typeDescriptor())
+                    .filter(typeSymbol -> typeSymbol.getModule().isPresent()
+                            && typeSymbol.nameEquals(MCP_TOOL_KIT)
+                            && typeSymbol.getModule().get().id().moduleName().equals(AI_AGENT))
+                    .isPresent();
+                if (isMcpToolKit) {
                     toolsData.add(new ToolData(toolName, ICON_PATH, getToolDescription(""), MCP_SERVER));
                     continue;
                 }
