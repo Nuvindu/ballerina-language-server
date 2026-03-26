@@ -247,10 +247,6 @@ public class SMBServiceBuilder extends AbstractServiceBuilder {
         Service serviceModel = service.get();
         ServiceDeclarationNode serviceNode = (ServiceDeclarationNode) context.node();
         SemanticModel semanticModel = context.semanticModel();
-        Map<String, FunctionDefinitionNode> functionNodes = new HashMap<>();
-        for (FunctionDefinitionNode functionNode : extractFunctionNodesFromSource(serviceNode)) {
-            functionNodes.put(functionNode.functionName().text().trim(), functionNode);
-        }
         Codedata codedata = new Codedata.Builder()
                 .setLineRange(serviceNode.lineRange())
                 .setOrgName(context.orgName())
