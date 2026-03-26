@@ -28,6 +28,7 @@ import io.ballerina.projects.Document;
 import io.ballerina.projects.Project;
 import io.ballerina.servicemodelgenerator.extension.builder.function.DefaultFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.FTPFunctionBuilder;
+import io.ballerina.servicemodelgenerator.extension.builder.function.SMBFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.GraphqlFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.HttpFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.KafkaFunctionBuilder;
@@ -55,6 +56,7 @@ import java.util.function.Supplier;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.DEFAULT;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.FTP;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.GRAPHQL;
+import static io.ballerina.servicemodelgenerator.extension.util.Constants.SMB;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.HTTP;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.KAFKA;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.MCP;
@@ -81,6 +83,7 @@ public class FunctionBuilderRouter {
         put(MSSQL, MssqlCdcFunctionBuilder::new);
         put(POSTGRESQL, PostgresqlCdcFunctionBuilder::new);
         put(FTP, FTPFunctionBuilder::new);
+        put(SMB, SMBFunctionBuilder::new);
     }};
 
     private static NodeBuilder<Function> getFunctionBuilder(String protocol) {
