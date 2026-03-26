@@ -21,7 +21,6 @@ package io.ballerina.servicemodelgenerator.extension.builder.service;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import io.ballerina.compiler.api.SemanticModel;
-import io.ballerina.compiler.syntax.tree.FunctionDefinitionNode;
 import io.ballerina.compiler.syntax.tree.ServiceDeclarationNode;
 import io.ballerina.openapi.core.generators.common.exception.BallerinaOpenApiException;
 import io.ballerina.projects.Document;
@@ -64,7 +63,6 @@ import static io.ballerina.servicemodelgenerator.extension.util.Constants.PROP_R
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.SERVICE;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.SMB;
 import static io.ballerina.servicemodelgenerator.extension.util.Constants.SPACE;
-import static io.ballerina.servicemodelgenerator.extension.util.ServiceModelUtils.extractFunctionNodesFromSource;
 import static io.ballerina.servicemodelgenerator.extension.util.ServiceModelUtils.extractFunctionsFromSource;
 import static io.ballerina.servicemodelgenerator.extension.util.ServiceModelUtils.getReadonlyMetadata;
 import static io.ballerina.servicemodelgenerator.extension.util.ServiceModelUtils.updateListenerItems;

@@ -28,7 +28,6 @@ import io.ballerina.projects.Document;
 import io.ballerina.projects.Project;
 import io.ballerina.servicemodelgenerator.extension.builder.function.DefaultFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.FTPFunctionBuilder;
-import io.ballerina.servicemodelgenerator.extension.builder.function.SMBFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.GraphqlFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.HttpFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.KafkaFunctionBuilder;
@@ -36,6 +35,7 @@ import io.ballerina.servicemodelgenerator.extension.builder.function.McpFunction
 import io.ballerina.servicemodelgenerator.extension.builder.function.MssqlCdcFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.PostgresqlCdcFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.RabbitMQFunctionBuilder;
+import io.ballerina.servicemodelgenerator.extension.builder.function.SMBFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.builder.function.SolaceFunctionBuilder;
 import io.ballerina.servicemodelgenerator.extension.model.Codedata;
 import io.ballerina.servicemodelgenerator.extension.model.Function;
